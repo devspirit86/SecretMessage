@@ -1,4 +1,4 @@
-package com.devspirit.parttime.message;
+package com.devspirit.parttime.sm;
 
 
 public class Code {

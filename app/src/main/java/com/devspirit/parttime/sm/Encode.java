@@ -1,4 +1,4 @@
-package com.devspirit.parttime.message;
+package com.devspirit.parttime.sm;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -28,14 +28,14 @@ public class Encode extends Activity implements OnClickListener{
 	 public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        //初始化
-		        setContentView(R.layout.encode);
+		        setContentView(com.devspirit.parttime.sm.R.layout.encode);
 		        //======button
-		        encode = (ImageButton)this.findViewById(R.id.encode);
-		        decode = (ImageButton)this.findViewById(R.id.decode);
-		        send = (ImageButton)this.findViewById(R.id.send);
+		        encode = (ImageButton)this.findViewById(com.devspirit.parttime.sm.R.id.encode);
+		        decode = (ImageButton)this.findViewById(com.devspirit.parttime.sm.R.id.decode);
+		        send = (ImageButton)this.findViewById(com.devspirit.parttime.sm.R.id.send);
 		        //======text
-		        text = (EditText)this.findViewById(R.id.messageinput);
-		        key = (EditText)this.findViewById(R.id.keyinput);  
+		        text = (EditText)this.findViewById(com.devspirit.parttime.sm.R.id.messageinput);
+		        key = (EditText)this.findViewById(com.devspirit.parttime.sm.R.id.keyinput);
 		        if(codeTime<1){//未加密
 		        	decode.setVisibility(View.GONE);
 		        }
@@ -83,7 +83,7 @@ public class Encode extends Activity implements OnClickListener{
 			
 		}
 	 public String getPreferrentKey(){
-		 return PreferenceManager.getDefaultSharedPreferences(this).getString("key", this.getString(R.string.keyvalue));
+		 return PreferenceManager.getDefaultSharedPreferences(this).getString("key", this.getString(com.devspirit.parttime.sm.R.string.keyvalue));
 	 }
 	 
 	@Override
@@ -91,7 +91,7 @@ public class Encode extends Activity implements OnClickListener{
 		// TODO Auto-generated method stub
 		
 		switch(arg0.getId()){
-			case R.id.encode :{
+			case com.devspirit.parttime.sm.R.id.encode :{
 				Code code = new Code(key.getText().toString());
 				String textCode = code.encode(text.getText().toString());
 				text.setText(textCode);
@@ -101,7 +101,7 @@ public class Encode extends Activity implements OnClickListener{
 					this.encode.setVisibility(View.GONE);
 				}
 			}break;
-			case R.id.decode :{
+			case com.devspirit.parttime.sm.R.id.decode :{
 				Code code = new Code(key.getText().toString());
 				String textCode = code.decode(text.getText().toString());
 				text.setText(textCode);
@@ -111,7 +111,7 @@ public class Encode extends Activity implements OnClickListener{
 					this.encode.setVisibility(View.VISIBLE);
 				}
 			}break;
-			case R.id.send :{
+			case com.devspirit.parttime.sm.R.id.send :{
 				//使用默认的短信发送activity
 				Uri uri = Uri.parse("smsto:");
 				Intent sendIntent = new Intent(Intent.ACTION_VIEW,uri);

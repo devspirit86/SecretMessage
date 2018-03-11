@@ -1,4 +1,4 @@
-package com.devspirit.parttime.message;
+package com.devspirit.parttime.sm;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -27,10 +27,10 @@ public class MessageList extends Activity implements OnItemClickListener , Simpl
 	 public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	        //初始化
-	    setContentView(R.layout.messagelist);
+	    setContentView(com.devspirit.parttime.sm.R.layout.messagelist);
         //初始化
-        this.setContentView(R.layout.messagelist);
-        messagelist = (ListView)this.findViewById(R.id.messageList);
+        this.setContentView(com.devspirit.parttime.sm.R.layout.messagelist);
+        messagelist = (ListView)this.findViewById(com.devspirit.parttime.sm.R.id.messageList);
         queryMessage = new QueryMessage();//默认全部
 		querySMS = queryMessage.queryAll(this);//搜索全部
 		//==========================Test================================================
@@ -41,7 +41,7 @@ public class MessageList extends Activity implements OnItemClickListener , Simpl
 		
 		
 		
-		version = this.getString(R.string.version);
+		version = this.getString(com.devspirit.parttime.sm.R.string.version);
 		if(version.equals("chinese")){
 			//中文：
 			formateDateStr ="yyyy-MM-dd hh:mm";
@@ -53,16 +53,16 @@ public class MessageList extends Activity implements OnItemClickListener , Simpl
 		this.intentDecode = new Intent(this,Decode.class);
       //显示列图
 		int[] showView = new int[3] ;
-		showView[0] = R.id.dateText;
-		showView[1] = R.id.nameText;
-		showView[2] = R.id.contentText;
+		showView[0] = com.devspirit.parttime.sm.R.id.dateText;
+		showView[1] = com.devspirit.parttime.sm.R.id.nameText;
+		showView[2] = com.devspirit.parttime.sm.R.id.contentText;
 		//显示数据列名
 		String[] showData = new String[3] ;
 		showData[0] = "date" ;
 		showData[1] = "address" ;
 		showData[2] = "body" ;
 		//生成列表
-        SimpleCursorAdapter simpleCursorAdapter = new SimpleCursorAdapter(this,R.layout.messagelabel,querySMS,showData,showView);
+        SimpleCursorAdapter simpleCursorAdapter = new SimpleCursorAdapter(this, com.devspirit.parttime.sm.R.layout.messagelabel,querySMS,showData,showView);
         simpleCursorAdapter.setViewBinder(this);
         messagelist.setAdapter(simpleCursorAdapter);
         messagelist.setOnItemClickListener(this);

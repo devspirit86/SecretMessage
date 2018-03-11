@@ -1,4 +1,4 @@
-package com.devspirit.parttime.message;
+package com.devspirit.parttime.sm;
 
 import android.app.Activity;
 import android.database.Cursor;

@@ -1,8 +1,8 @@
-package com.devspirit.parttime.message;
+package com.devspirit.parttime.sm;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.devspirit.parttime.message.R;
+import com.devspirit.parttime.sm.R;
 
 public class About extends Activity {
 	 public void onCreate(Bundle savedInstanceState) {

@@ -1,4 +1,4 @@
- package com.devspirit.parttime.message;
+ package com.devspirit.parttime.sm;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -34,18 +34,18 @@ public class Menu extends Activity implements OnClickListener{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //初始化
-	        setContentView(R.layout.main);
+	        setContentView(com.devspirit.parttime.sm.R.layout.main);
 	        //========layout
-	        menu_bgLayout =(LinearLayout)this.findViewById(R.id.menu_bglayout);
-	        menu_table =(TableLayout)this.findViewById(R.id.menu_table);
-	        menu_tablerow =(TableRow)this.findViewById(R.id.menu_tableRow);
+	        menu_bgLayout =(LinearLayout)this.findViewById(com.devspirit.parttime.sm.R.id.menu_bglayout);
+	        menu_table =(TableLayout)this.findViewById(com.devspirit.parttime.sm.R.id.menu_table);
+	        menu_tablerow =(TableRow)this.findViewById(com.devspirit.parttime.sm.R.id.menu_tableRow);
 	        //========text
-	        this.title = (TextView)this.findViewById(R.id.title);
+	        this.title = (TextView)this.findViewById(com.devspirit.parttime.sm.R.id.title);
 	        //========button
-	        send = (ImageButton)this.findViewById(R.id.send) ;
-	        read = (ImageButton)this.findViewById(R.id.read) ;
-	        setting = (ImageButton)this.findViewById(R.id.setting) ;
-	        about = (ImageButton)this.findViewById(R.id.about) ;
+	        send = (ImageButton)this.findViewById(com.devspirit.parttime.sm.R.id.send) ;
+	        read = (ImageButton)this.findViewById(com.devspirit.parttime.sm.R.id.read) ;
+	        setting = (ImageButton)this.findViewById(com.devspirit.parttime.sm.R.id.setting) ;
+	        about = (ImageButton)this.findViewById(com.devspirit.parttime.sm.R.id.about) ;
 	        //设备
 	        Display display = this.getWindowManager().getDefaultDisplay();
 			this.windowHeight = display.getHeight();
@@ -99,19 +99,19 @@ public class Menu extends Activity implements OnClickListener{
 		// TODO Auto-generated method stub
 		Uri uri = null ;
 		switch(arg0.getId()){
-		case R.id.send :{
+		case com.devspirit.parttime.sm.R.id.send :{
 			Intent intent = new Intent(this,Encode.class ); 
 			this.startActivity(intent);
 		} break ;
-		case R.id.read :{
+		case com.devspirit.parttime.sm.R.id.read :{
 			Intent intent = new Intent(this,MessageList.class);
 			this.startActivity(intent);
 			} break ;
-		case R.id.setting :{ 
+		case com.devspirit.parttime.sm.R.id.setting :{
 			Intent intent = new Intent(this,Setting.class);
 			this.startActivity(intent);
 			}break ;
-		case R.id.about :{ 
+		case com.devspirit.parttime.sm.R.id.about :{
 			Intent intent = new Intent(this,About.class);
 			this.startActivity(intent);
 			}break ;
